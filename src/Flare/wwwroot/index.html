@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Flare</title>
+<link  rel="stylesheet" type="text/css" href="/css/app.css" />
+    
+
+<script src="/lib/signalr/signalr.min.js"></script>
+<script src="/js/app.js" type="text/javascript"></script>
+</head>
+
+<body>
+The content of the document......
+</body>
+    <table>
+        <tr>
+            <th>Start</th>
+            <th>Stop</th>
+            <th>Reconnect</th>
+        </tr>
+        <tr>
+            <td><button onclick="Start();">Start</button></td>
+            <td><button onclick="Stop();">Stop</button></td>
+            <td><button onclick="Reconnect();">Reconnect</button></td>
+        </tr>
+    </table>
+
+    <code class="console" id="output">
+
+    </code>
+    <div class="console" id="errMsg">
+
+    </div>
+    <div class="console" id="exitCode">
+
+    </div>
+        
+        
+</html>
