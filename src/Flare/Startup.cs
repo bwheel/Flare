@@ -22,8 +22,8 @@ namespace Flare
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddHostedService<ProcessRunnerService>();
-            services.AddSingleton<IProcessRunnerService, ProcessRunnerService>();
+            services.AddHostedService<PollRunner>();
+            services.AddSingleton<IRunner, PollRunner>();
             services.AddMvc();
             services.AddSignalR();
         }

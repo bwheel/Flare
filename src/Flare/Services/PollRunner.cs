@@ -1,16 +1,17 @@
 
 using System;
 using System.Diagnostics;
-using System.Threading;
+using System.Timers;
 using System.Threading.Tasks;
 using Flare.Hubs;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using System.Threading;
 
 namespace Flare.Services
 {
-    public class ProcessRunnerService : IProcessRunnerService
+    public class PollRunner : IRunner
     {
         // constants.
         public const string PERIOD_SECONDS_KEY = "period";
@@ -28,13 +29,18 @@ namespace Flare.Services
         private readonly IHubContext<FlareHub> _hubContext;
 
         // members
-        private Timer _timer;
-    
-        public ProcessRunnerService(ILogger<ProcessRunnerService> logger, IConfiguration configuration, IHubContext<FlareHub> hubContext)
+        private System.Timers.Timer _timer;
+
+        public bool IsRunning => _timer != null ? _timer.Enabled : false;
+
+        public string Output { get; private set; }
+
+        public PollRunner(ILogger<PollRunner> logger, IConfiguration configuration, IHubContext<FlareHub> hubContext)
         {
             _logger = logger;
             _configuration = configuration;
             _hubContext = hubContext;
+            Output = string.Empty;
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
@@ -47,15 +53,14 @@ namespace Flare.Services
         private void start()
         {
             _logger.LogDebug("Process Runner Starting.");
-            _timer = new Timer(
-                callback: timer_callback,
-                state: null,
-                dueTime: TimeSpan.Zero, 
-                period: TimeSpan.FromSeconds(_configuration.GetValue<double>(PERIOD_SECONDS_KEY, DEFAULT_PERIOD_SECONDS)));
+            _timer = new System.Timers.Timer();
+            _timer.Elapsed += timer_callback;
+            _timer.Interval = TimeSpan.FromSeconds(_configuration.GetValue<double>(PERIOD_SECONDS_KEY, DEFAULT_PERIOD_SECONDS)).TotalMilliseconds;
+            _timer.Start();
             _logger.LogDebug("Process Runner Started.");
         }
 
-        private async void timer_callback(object state)
+        private async void timer_callback(object sener, EventArgs e)
         {
             try
             {
@@ -78,7 +83,9 @@ namespace Flare.Services
                         var output = await p.StandardOutput.ReadToEndAsync();
                         var error = await p.StandardError.ReadToEndAsync();
                         var exitCode = p.ExitCode;
-
+                        Output = string.Empty;
+                        Output += output;
+                        Output += error;
                         await _hubContext.Clients.All.SendAsync("output", output);
                         await _hubContext.Clients.All.SendAsync("error", error);
                         await _hubContext.Clients.All.SendAsync("exitCode", exitCode);                        
@@ -90,9 +97,9 @@ namespace Flare.Services
                     }
                 }
             }
-            catch(Exception e)
+            catch(Exception ex)
             {
-                _logger.LogError("Error", e);
+                _logger.LogError(ex, "Error");
             }
         }
 
@@ -106,7 +113,7 @@ namespace Flare.Services
         private void stop()
         {
             _logger.LogDebug("Process Runner Stopping.");
-            _timer?.Change(Timeout.Infinite, 0);
+            _timer?.Stop();
             _logger.LogDebug("Process Runner Stopped.");
         }
 

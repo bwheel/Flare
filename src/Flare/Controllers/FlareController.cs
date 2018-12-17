@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using System.Threading;
 using System.Threading.Tasks;
 using Flare.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -11,12 +12,12 @@ namespace Flare.Controllers
     public class FlareController : Controller
     {
         private readonly ILogger<FlareController> _logger;
-        public readonly IProcessRunnerService _processRunnerService;
+        public readonly IRunner _runner;
 
-        public FlareController(ILogger<FlareController> logger, IProcessRunnerService processRunnerService)
+        public FlareController(ILogger<FlareController> logger, IRunner processRunnerService)
         {
             _logger = logger;
-            _processRunnerService = processRunnerService;
+            _runner = processRunnerService;
         }
 
 
@@ -24,8 +25,9 @@ namespace Flare.Controllers
         public async Task<string> Output()
         {
             _logger.LogDebug("Output");
-            return await Task.Run<string> ( () =>{
-                return "output of some process/script being run.";
+            return await Task.Run<string> ( () =>
+            {
+                return _runner.Output;
             });
         }
 
@@ -34,34 +36,67 @@ namespace Flare.Controllers
         {
             return await Task.Run<bool>( () => 
                 {
-                    return false;
+                    return _runner.IsRunning;
                 });
         }
 
         [HttpPost]
         public async Task<bool> Start()
         {
-            return await Task.Run<bool> (() =>
+            return await Task.Run<bool> (async () =>
             {
-                return false;
+                try
+                {
+                    var tokenSrc = new CancellationTokenSource();
+                    await _runner.StartAsync(tokenSrc.Token);
+                    return true;
+                }
+                catch(Exception e)
+                {
+                    _logger.LogError(e, "Error in starting runner");
+                    return false;
+                }
             });
         }
         
         [HttpPost]
         public async Task<bool> Stop()
         {
-            return await Task.Run<bool> (() =>
+            return await Task.Run<bool> (async () =>
             {
-                return false;
+                try
+                {
+                    var tokenSrc = new CancellationTokenSource();
+                    await _runner.StopAsync(tokenSrc.Token);
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    _logger.LogError(e, "Error in stopping runner");
+                    return false;
+                }
             });
         }
 
         [HttpPost]
         public async Task<bool> Restart()
         {
-            return await Task.Run<bool> (() =>
+            return await Task.Run<bool> (async () =>
             {
-                return false;
+                try
+                {
+                    var tokenSrc = new CancellationTokenSource();
+                    await _runner.StopAsync(tokenSrc.Token);
+               
+                    tokenSrc = new CancellationTokenSource();
+                    await _runner.StartAsync(tokenSrc.Token);
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    _logger.LogError(e, "Error in restarting runner");
+                    return false;
+                }
             });
         }
     }
