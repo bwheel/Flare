@@ -1,0 +1,49 @@
+2024-09-21 14:32:01,123 INFO    [Startup] - Application started successfully. Version: 1.2.3
+2024-09-21 14:32:01,234 DEBUG   [Configuration] - Loaded environment: Production
+2024-09-21 14:32:01,456 INFO    [Database] - Successfully connected to SQL Server database.
+2024-09-21 14:32:01,678 WARNING [Authentication] - Failed login attempt for user 'john.doe'
+2024-09-21 14:32:01,789 ERROR   [RedisCache] - Unable to connect to Redis instance. Reverting to in-memory cache.
+2024-09-21 14:32:02,001 DEBUG   [Hangfire] - Queued job 'ProcessPendingOrders' to run at 03:00 AM.
+2024-09-21 14:32:02,234 INFO    [API] - GET /api/v1/products processed in 200ms.
+2024-09-21 14:32:02,456 INFO    [Identity] - User 'jane.smith' logged out.
+2024-09-21 14:32:02,678 ERROR   [EmailService] - Failed to send email. SMTP connection timeout.
+2024-09-21 14:32:02,890 DEBUG   [Authorization] - Token validation succeeded for user 'alice.jones'.
+2024-09-21 14:32:03,012 INFO    [BackgroundTask] - Task 'sync_orders' started at 14:32.
+2024-09-21 14:32:03,123 DEBUG   [CacheService] - Cache miss for key: 'user:45:profile'.
+2024-09-21 14:32:03,234 INFO    [Database] - Executed query 'SELECT * FROM Users WHERE Status = 'Active''.
+2024-09-21 14:32:03,345 WARNING [RateLimiter] - Rate limit exceeded for IP: 192.168.1.20
+2024-09-21 14:32:03,456 INFO    [BackgroundTask] - Task 'sync_orders' completed in 1.789 seconds.
+2024-09-21 14:32:03,567 DEBUG   [Scheduler] - Job 'GenerateReports' scheduled to run daily.
+2024-09-21 14:32:03,678 ERROR   [Authentication] - Invalid password for user 'david.king'.
+2024-09-21 14:32:03,789 INFO    [API] - DELETE /api/v1/users/123 processed successfully.
+2024-09-21 14:32:03,901 WARNING [Authorization] - Unauthorized access attempt by user 'bob.miller'.
+2024-09-21 14:32:04,012 INFO    [FileService] - File 'report_2024.csv' generated successfully.
+2024-09-21 14:32:04,123 DEBUG   [Job] - Processing 100 records for job 'UpdateCustomerInfo'.
+2024-09-21 14:32:04,234 INFO    [API] - PUT /api/v1/products/5 took 1.234 seconds.
+2024-09-21 14:32:04,345 ERROR   [SQLServer] - SQL Exception: Primary key violation for Order ID 567.
+2024-09-21 14:32:04,456 DEBUG   [EmailService] - Email queued for 'support@domain.com'.
+2024-09-21 14:32:04,567 INFO    [Identity] - Password reset requested for user 'mary.jones'.
+2024-09-21 14:32:04,678 INFO    [BackgroundJob] - Task 'CleanupSessions' initiated at 02:00 PM.
+2024-09-21 14:32:04,789 WARNING [SQLServer] - Long-running query detected: 'UPDATE Orders SET Status='Processed''.
+2024-09-21 14:32:04,901 ERROR   [API] - Invalid JSON payload in request to /api/v1/orders.
+2024-09-21 14:32:05,012 INFO    [JobScheduler] - Job 'BackupDatabase' completed successfully.
+2024-09-21 14:32:05,123 DEBUG   [HTTP] - POST request received at /api/v1/user/profile.
+2024-09-21 14:32:05,234 INFO    [API] - POST /api/v1/login completed in 500ms.
+2024-09-21 14:32:05,345 ERROR   [CacheService] - Redis connection lost, retrying...
+2024-09-21 14:32:05,456 WARNING [JobScheduler] - Task 'SyncWithRemoteAPI' reached retry limit.
+2024-09-21 14:32:05,567 INFO    [Identity] - User 'julia.lee' successfully authenticated with OAuth2.
+2024-09-21 14:32:05,678 DEBUG   [HTTP] - Response sent: 200 OK for GET /api/v1/orders.
+2024-09-21 14:32:05,789 INFO    [BackgroundJob] - Task 'PurgeOldData' completed in 2.123 seconds.
+2024-09-21 14:32:05,901 WARNING [Session] - Session expired for user 'michael.scott'.
+2024-09-21 14:32:06,012 DEBUG   [SQLServer] - Fetched 500 rows for 'GetPendingOrders'.
+2024-09-21 14:32:06,123 INFO    [EmailService] - Email sent to 'admin@domain.com' with subject 'Application Error Alert'.
+2024-09-21 14:32:06,234 ERROR   [API] - JSON schema validation failed for PUT /api/v1/settings.
+2024-09-21 14:32:06,345 INFO    [Database] - Rebuilding index 'Users_LastLoginIndex'.
+2024-09-21 14:32:06,456 DEBUG   [HTTP] - Sent 404 Not Found for GET /api/v1/missing-endpoint.
+2024-09-21 14:32:06,567 WARNING [JobScheduler] - Job 'SendReminderEmails' failed, retrying in 10 minutes.
+2024-09-21 14:32:06,678 INFO    [Identity] - Password reset completed for user 'tom.brady'.
+2024-09-21 14:32:06,789 ERROR   [SQLServer] - Connection to database server lost, attempting reconnection...
+2024-09-21 14:32:06,901 INFO    [BackgroundTask] - Task 'DeleteInactiveUsers' completed successfully.
+2024-09-21 14:32:07,012 DEBUG   [CacheService] - Cache miss for 'user:profile_settings:123'.
+2024-09-21 14:32:07,123 INFO    [JobScheduler] - Next job run for 'CleanupLogs' scheduled at 03:00 AM.
+2024-09-21 14:32:07,234 INFO    [Application] - Initiating graceful shutdown...

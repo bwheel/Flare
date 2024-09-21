@@ -1,0 +1,49 @@
+2024-09-21 14:35:01.123 INFO    [AppStartup] - Application started on port 8080
+2024-09-21 14:35:01.234 DEBUG   [Config] - Loaded configuration from application.properties
+2024-09-21 14:35:01.456 INFO    [Database] - Connected to PostgreSQL at jdbc:postgresql://localhost:5432/mydb
+2024-09-21 14:35:01.678 WARNING [Auth] - Failed login attempt for user 'jane.doe'
+2024-09-21 14:35:01.789 ERROR   [Cache] - Unable to connect to Redis, falling back to local cache
+2024-09-21 14:35:02.001 DEBUG   [Scheduler] - Job 'dailyReport' scheduled to run every day at 10 AM
+2024-09-21 14:35:02.234 INFO    [REST API] - GET /api/v1/customers processed in 125ms
+2024-09-21 14:35:02.456 INFO    [Auth] - User 'john.smith' logged out successfully
+2024-09-21 14:35:02.678 ERROR   [EmailService] - Failed to send email: SMTP connection timeout
+2024-09-21 14:35:02.890 DEBUG   [Auth] - Token validation succeeded for user 'alice.jones'
+2024-09-21 14:35:03.012 INFO    [Task] - Task 'syncInventory' started
+2024-09-21 14:35:03.123 DEBUG   [Cache] - Cache miss for key: 'products:all'
+2024-09-21 14:35:03.234 INFO    [Database] - Executed query: 'SELECT * FROM orders WHERE status = 'pending''
+2024-09-21 14:35:03.345 WARNING [API] - Rate limit exceeded for IP: 192.168.1.10
+2024-09-21 14:35:03.456 INFO    [Task] - Task 'syncInventory' completed in 2.345 seconds
+2024-09-21 14:35:03.567 DEBUG   [Scheduler] - Job 'sendWeeklyNewsletters' scheduled for every Monday
+2024-09-21 14:35:03.678 ERROR   [Auth] - Incorrect password attempt for user 'mike.williams'
+2024-09-21 14:35:03.789 INFO    [API] - DELETE /api/v1/users/45 completed successfully
+2024-09-21 14:35:03.901 WARNING [Auth] - User 'frank.brown' attempted to access unauthorized resource
+2024-09-21 14:35:04.012 INFO    [FileService] - File 'report_2024.csv' generated successfully
+2024-09-21 14:35:04.123 DEBUG   [Task] - Processing 150 records from 'fetchCustomerData'
+2024-09-21 14:35:04.234 INFO    [API] - PUT /api/v1/products/22 processed in 0.789 seconds
+2024-09-21 14:35:04.345 ERROR   [Database] - SQL Exception: Unique constraint violation on 'order_id=567'
+2024-09-21 14:35:04.456 DEBUG   [EmailService] - Email queued for 'support@example.com'
+2024-09-21 14:35:04.567 INFO    [Auth] - Password reset initiated for user 'sara.connor'
+2024-09-21 14:35:04.678 INFO    [Task] - Task 'cleanUpOldSessions' started at 01:00 PM
+2024-09-21 14:35:04.789 WARNING [Database] - Long-running query detected: 'UPDATE users SET last_login=NOW()'
+2024-09-21 14:35:04.901 ERROR   [API] - Request failed: JSON parsing error in body
+2024-09-21 14:35:05.012 INFO    [Scheduler] - Job 'databaseBackup' completed successfully
+2024-09-21 14:35:05.123 DEBUG   [HTTP] - Received POST request for /api/v1/updateProfile
+2024-09-21 14:35:05.234 INFO    [API] - POST /api/v1/login request processed in 300ms
+2024-09-21 14:35:05.345 ERROR   [Cache] - Cache connection lost, retrying...
+2024-09-21 14:35:05.456 WARNING [Scheduler] - Task 'syncWithSupplier' reached retry limit
+2024-09-21 14:35:05.567 INFO    [Auth] - User 'helen.garcia' successfully logged in via OAuth
+2024-09-21 14:35:05.678 DEBUG   [HTTP] - Response: 200 OK for GET /api/v1/orders
+2024-09-21 14:35:05.789 INFO    [Task] - Task 'cleanupTempFiles' completed in 0.567 seconds
+2024-09-21 14:35:05.901 WARNING [Auth] - Session expired for user 'ian.jones'
+2024-09-21 14:35:06.012 DEBUG   [Task] - Retrieved 250 rows from 'fetchPendingOrders'
+2024-09-21 14:35:06.123 INFO    [EmailService] - Email sent to 'admin@example.com' with subject 'System Error Notification'
+2024-09-21 14:35:06.234 ERROR   [API] - Invalid token in request to /api/v1/settings
+2024-09-21 14:35:06.345 INFO    [Database] - Index rebuilt successfully on 'users'
+2024-09-21 14:35:06.456 DEBUG   [HTTP] - Sent response 404 Not Found for GET /api/v1/nonexistent
+2024-09-21 14:35:06.567 WARNING [Scheduler] - Job 'sendReminders' failed, will retry in 20 minutes
+2024-09-21 14:35:06.678 INFO    [Auth] - Password reset successful for user 'tom.hanks'
+2024-09-21 14:35:06.789 ERROR   [Database] - Lost connection to database server, reconnecting...
+2024-09-21 14:35:06.901 INFO    [Task] - Task 'deleteInactiveUsers' completed successfully.
+2024-09-21 14:35:07.012 DEBUG   [Cache] - Cache miss for key: 'settings:user:123'
+2024-09-21 14:35:07.123 INFO    [Scheduler] - Next run for 'cleanupLogs' scheduled for 02:00 AM.
+2024-09-21 14:35:07.234 INFO    [AppShutdown] - Graceful shutdown initiated...

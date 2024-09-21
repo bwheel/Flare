@@ -1,0 +1,49 @@
+2024-09-21 14:30:01,123 INFO    [app] - Application startup complete, version 1.0.2
+2024-09-21 14:30:01,234 DEBUG   [config] - Using environment variable 'APP_MODE=production'
+2024-09-21 14:30:01,456 INFO    [database] - Established connection to PostgreSQL database
+2024-09-21 14:30:01,678 WARNING [auth] - User 'chris' has an expired session, redirecting to login
+2024-09-21 14:30:01,789 ERROR   [cache] - Redis unavailable, falling back to local cache
+2024-09-21 14:30:02,001 DEBUG   [scheduler] - Scheduled task 'cleanup_logs' for execution at 02:00 AM
+2024-09-21 14:30:02,234 INFO    [api] - GET /api/v1/dashboard request processed in 0.123 seconds
+2024-09-21 14:30:02,456 INFO    [auth] - User 'alice' logged out successfully
+2024-09-21 14:30:02,678 ERROR   [task] - Failed to send email: SMTP server not responding
+2024-09-21 14:30:02,890 DEBUG   [auth] - JWT token for user 'dave' successfully validated
+2024-09-21 14:30:03,012 INFO    [task] - Task 'sync_inventory' started
+2024-09-21 14:30:03,123 DEBUG   [cache] - Cache updated for key: 'products_list'
+2024-09-21 14:30:03,234 INFO    [database] - Executed query: 'SELECT * FROM orders WHERE status = 'pending''
+2024-09-21 14:30:03,345 WARNING [api] - Rate limit exceeded for IP 192.168.1.100
+2024-09-21 14:30:03,456 INFO    [task] - Task 'sync_inventory' completed in 1.345 seconds
+2024-09-21 14:30:03,567 DEBUG   [scheduler] - Task 'send_newsletter' scheduled to run weekly
+2024-09-21 14:30:03,678 ERROR   [auth] - Invalid password attempt for user 'eve'
+2024-09-21 14:30:03,789 INFO    [api] - DELETE /api/v1/users/45 completed successfully
+2024-09-21 14:30:03,901 WARNING [auth] - User 'frank' attempted to access unauthorized resource
+2024-09-21 14:30:04,012 INFO    [task] - File 'export.csv' generated successfully
+2024-09-21 14:30:04,123 DEBUG   [task] - Processing 200 records from 'sync_customers'
+2024-09-21 14:30:04,234 INFO    [api] - PUT /api/v1/products/22 processed in 0.567 seconds
+2024-09-21 14:30:04,345 ERROR   [database] - IntegrityError: Duplicate entry for primary key 'order_id=567'
+2024-09-21 14:30:04,456 DEBUG   [mailer] - Queued email to 'support@domain.com'
+2024-09-21 14:30:04,567 INFO    [auth] - Password reset initiated for user 'gary'
+2024-09-21 14:30:04,678 INFO    [task] - Task 'archive_orders' started at 02:00 PM
+2024-09-21 14:30:04,789 WARNING [database] - Query took longer than expected: 'UPDATE users SET last_login=NOW()'
+2024-09-21 14:30:04,901 ERROR   [api] - Failed to process request: JSON decoding error
+2024-09-21 14:30:05,012 INFO    [scheduler] - Job 'backup_database' completed successfully
+2024-09-21 14:30:05,123 DEBUG   [http] - Received POST request for /api/v1/update-profile
+2024-09-21 14:30:05,234 INFO    [api] - POST /api/v1/login request processed in 0.890 seconds
+2024-09-21 14:30:05,345 ERROR   [cache] - Cache connection lost, retrying...
+2024-09-21 14:30:05,456 WARNING [task] - Retry limit reached for 'sync_with_supplier'
+2024-09-21 14:30:05,567 INFO    [auth] - User 'helen' successfully logged in via OAuth
+2024-09-21 14:30:05,678 DEBUG   [http] - Response: 200 OK for GET /api/v1/orders
+2024-09-21 14:30:05,789 INFO    [task] - Task 'cleanup_temp_files' completed in 0.345 seconds
+2024-09-21 14:30:05,901 WARNING [auth] - User 'ian' session expired
+2024-09-21 14:30:06,012 DEBUG   [task] - Retrieved 500 rows from 'fetch_unprocessed_orders'
+2024-09-21 14:30:06,123 INFO    [email] - Email sent to 'admin@domain.com' with subject 'System Error Alert'
+2024-09-21 14:30:06,234 ERROR   [api] - Unexpected token in JSON payload for request: /api/v1/update-settings
+2024-09-21 14:30:06,345 INFO    [database] - Index rebuild completed successfully
+2024-09-21 14:30:06,456 DEBUG   [http] - Sent response 404 Not Found for GET /api/v1/nonexistent-endpoint
+2024-09-21 14:30:06,567 WARNING [scheduler] - Job 'email_notifications' failed, retrying in 5 minutes
+2024-09-21 14:30:06,678 INFO    [auth] - User 'jack' password reset successful
+2024-09-21 14:30:06,789 ERROR   [database] - Lost connection to database server, attempting to reconnect...
+2024-09-21 14:30:06,901 INFO    [task] - Task 'purge_inactive_users' executed successfully
+2024-09-21 14:30:07,012 DEBUG   [cache] - Cache miss for key: 'settings:user:profile'
+2024-09-21 14:30:07,123 INFO    [scheduler] - Next run of 'cleanup_logs' scheduled for 24 hours later
+2024-09-21 14:30:07,234 INFO    [main] - Application shutdown initiated...
