@@ -1,0 +1,47 @@
+﻿@page "/flare"
+
+@using Microsoft.AspNetCore.SignalR.Client
+@inject NavigationManager Navigation
+
+<PageTitle>Flare</PageTitle>
+
+<h1>Flare</h1>
+
+<p>This component will display the logs</p>
+<ul>
+    @foreach (var msg in messages)
+    {
+        <li>@msg</li>
+    }
+</ul>
+@code {
+    private HubConnection? hubConnection;
+    private string messageToSend = string.Empty;
+    private List<string> messages = new List<string>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        hubConnection = new HubConnectionBuilder()
+            .WithUrl(Navigation.ToAbsoluteUri("/messageHub"))
+            .Build();
+
+
+        if (hubConnection != null)
+        {
+            hubConnection.On<string>("SendMessage", (message) =>
+            {
+                messages.Add(message);
+                InvokeAsync(StateHasChanged); // Update the UI
+            });
+
+            await hubConnection.StartAsync();
+        }
+    }
+
+
+    public async ValueTask DisposeAsync()
+    {
+        if(hubConnection != null)
+            await hubConnection.DisposeAsync();
+    }
+}
