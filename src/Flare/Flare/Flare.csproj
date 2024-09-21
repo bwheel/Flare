@@ -7,8 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="StaticAssets\css\app.css" />
+    <Content Include="StaticAssets\images\favicon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Flare.Client\Flare.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.8" />
   </ItemGroup>
+
+	<Target Name="LibmanRestore" BeforeTargets="build">
+		<Exec Command="dotnet libman restore"></Exec>
+	</Target>
 
 </Project>

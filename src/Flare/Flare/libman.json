@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "bootstrap@5.1.0",
+      "destination": "wwwroot\\lib\\bootstrap",
+      "files": [
+        "css/bootstrap.min.css"
+      ]
+    },
+    {
+      "provider": "filesystem",
+      "library": "StaticAssets\\css\\",
+      "destination": "wwwroot\\",
+      "files": [
+        "app.css"
+      ]
+    },
+    {
+      "provider": "filesystem",
+      "library": "StaticAssets\\images\\",
+      "destination": "wwwroot\\",
+      "files": [
+        "favicon.png"
+      ]
+    }
+  ]
+}
