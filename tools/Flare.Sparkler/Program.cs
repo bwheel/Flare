@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Threading;
 using Microsoft.Extensions.Configuration;
 
-namespace Flare.Sparker;
+namespace Flare.Sparkler;
 
 [AttributeUsage(AttributeTargets.Field)]
 public class EmbeddedResourceNameAttribute : Attribute
