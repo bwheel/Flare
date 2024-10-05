@@ -6,12 +6,12 @@ using System.Reflection;
 using System.Threading;
 using Microsoft.Extensions.Configuration;
 
-namespace Flare.Sparkler;
+namespace Sparkler;
 
 [AttributeUsage(AttributeTargets.Field)]
 public class EmbeddedResourceNameAttribute : Attribute
 {
-    public string FilePath => $"Flare.Sparker.data.{m_fileName}";
+    public string FilePath => $"Sparkler.data.{m_fileName}";
     private string m_fileName;
     public EmbeddedResourceNameAttribute(string fileName)
     {
@@ -23,11 +23,14 @@ public enum SourceTypes
 {
     [EmbeddedResourceName("python_logs.txt")]
     Python,
-    [EmbeddedResourceName("python_logs.txt")]
+
+    [EmbeddedResourceName("dotnet_logs.txt")]
     DotNet,
-    [EmbeddedResourceName("python_logs.txt")]
+
+    [EmbeddedResourceName("nodejs_logs.txt")]
     NodeJs,
-    [EmbeddedResourceName("python_logs.txt")]
+
+    [EmbeddedResourceName("java_logs.txt")]
     Java,
 };
 
@@ -52,9 +55,9 @@ public static class Extentions
 
 class Program
 {
-    public const string KEY_SOURCE = "FLARE_SPARKER_SOURCE";
-    public const string KEY_ITERATIONS = "FLARE_SPARKLER_ITERATIONS";
-    public const string KEY_DELAY = "FLARE_SPARKLER_DELAY";
+    public const string KEY_SOURCE = "SPARKLER_SOURCE";
+    public const string KEY_ITERATIONS = "SPARKLER_ITERATIONS";
+    public const string KEY_DELAY = "SPARKLER_DELAY";
     public const SourceTypes DEFAULT_SOURCE_TYPE = SourceTypes.Python;
     public const int DEFAULT_ITERATIONS = -1;
     public static readonly TimeSpan DEFAULT_DELAY = TimeSpan.FromMilliseconds(500);
