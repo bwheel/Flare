@@ -8,6 +8,13 @@
         "libman"
       ],
       "rollForward": false
+    },
+    "sparkler": {
+      "version": "1.0.2",
+      "commands": [
+        "Sparkler"
+      ],
+      "rollForward": false
     }
   }
 }

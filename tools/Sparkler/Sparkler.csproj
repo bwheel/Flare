@@ -5,10 +5,14 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>Flare.Sparkler.Program</StartupObject>
-	<PackAsTool>true</PackAsTool>
-	<ToolCommandName>Sparkler</ToolCommandName>
-	<PackageOutputPath>./nupkg</PackageOutputPath>
+    <StartupObject>Sparkler.Program</StartupObject>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>Sparkler</ToolCommandName>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
+    <AppVersion>1.0.2</AppVersion>
+    <Version>$(AppVersion)</Version>
+    <AssemblyVersion>$(AppVersion)</AssemblyVersion>
+    <FileVersion>$(AppVersion)</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
